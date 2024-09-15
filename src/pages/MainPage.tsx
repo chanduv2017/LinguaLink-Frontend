@@ -15,7 +15,7 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { MicIcon } from "@/icons/icons";
+// import { MicIcon } from "@/icons/icons";
 import { Separator } from "@/components/ui/separator";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,8 +23,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { authState } from "@/Auth/Auth";
+
 
 const formSchema = z.object({
   inputText: z.string().min(1, {
@@ -201,62 +200,62 @@ function TextTranslate() {
   );
 }
 
-function VoiceTranslate() {
-  return (
-    <div id="voice-input" className="container px-4  md:px-6 items-center">
-      <div>
-        <h2 className="text-3xl font-bold mb-4">Translate by Voice</h2>
-        <p className="text-muted-foreground mb-6">
-          Simply speak into your microphone and we'll translate your words in
-          real-time.
-        </p>
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col lg:flex-row  items-center gap-4">
-            <Select>
-              <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Select source language" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="es">Spanish</SelectItem>
-                <SelectItem value="fr">French</SelectItem>
-                <SelectItem value="de">German</SelectItem>
-              </SelectContent>
-            </Select>
-            <Select>
-              <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Select target language" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="es">Spanish</SelectItem>
-                <SelectItem value="fr">French</SelectItem>
-                <SelectItem value="de">German</SelectItem>
-              </SelectContent>
-            </Select>
-            <Button size="lg" className="flex items-center gap-2">
-              <MicIcon className="w-5 h-5" />
-              Start Voice Translation
-            </Button>
-          </div>
-          <Textarea
-            placeholder="Translated text will appear here"
-            className="flex-1 rounded-md border border-input p-3"
-            rows={3}
-            readOnly
-          />
-          <p className="text-muted-foreground">
-            Our voice translation feature uses advanced speech recognition and
-            machine translation technology to provide accurate and real-time
-            translations. Simply select your source and target languages, then
-            click the microphone button to start speaking. The translated text
-            will be displayed in the text area below.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+// function VoiceTranslate() {
+//   return (
+//     <div id="voice-input" className="container px-4  md:px-6 items-center">
+//       <div>
+//         <h2 className="text-3xl font-bold mb-4">Translate by Voice</h2>
+//         <p className="text-muted-foreground mb-6">
+//           Simply speak into your microphone and we'll translate your words in
+//           real-time.
+//         </p>
+//         <div className="flex flex-col gap-4">
+//           <div className="flex flex-col lg:flex-row  items-center gap-4">
+//             <Select>
+//               <SelectTrigger className="w-[200px]">
+//                 <SelectValue placeholder="Select source language" />
+//               </SelectTrigger>
+//               <SelectContent>
+//                 <SelectItem value="en">English</SelectItem>
+//                 <SelectItem value="es">Spanish</SelectItem>
+//                 <SelectItem value="fr">French</SelectItem>
+//                 <SelectItem value="de">German</SelectItem>
+//               </SelectContent>
+//             </Select>
+//             <Select>
+//               <SelectTrigger className="w-[200px]">
+//                 <SelectValue placeholder="Select target language" />
+//               </SelectTrigger>
+//               <SelectContent>
+//                 <SelectItem value="en">English</SelectItem>
+//                 <SelectItem value="es">Spanish</SelectItem>
+//                 <SelectItem value="fr">French</SelectItem>
+//                 <SelectItem value="de">German</SelectItem>
+//               </SelectContent>
+//             </Select>
+//             <Button size="lg" className="flex items-center gap-2">
+//               <MicIcon className="w-5 h-5" />
+//               Start Voice Translation
+//             </Button>
+//           </div>
+//           <Textarea
+//             placeholder="Translated text will appear here"
+//             className="flex-1 rounded-md border border-input p-3"
+//             rows={3}
+//             readOnly
+//           />
+//           <p className="text-muted-foreground">
+//             Our voice translation feature uses advanced speech recognition and
+//             machine translation technology to provide accurate and real-time
+//             translations. Simply select your source and target languages, then
+//             click the microphone button to start speaking. The translated text
+//             will be displayed in the text area below.
+//           </p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 function History() {
   interface HistoryEntry {
     _id: string;           

@@ -1,4 +1,4 @@
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 
 import { authState } from "./Auth";
 import { useNavigate } from "react-router-dom";
@@ -10,15 +10,20 @@ type Props = {
 
 const ProtectedRoute = ({ children }: Props) => {
   const Navigate = useNavigate();
-  const auth = useRecoilValue(authState);
+  const [auth, setAuth] = useRecoilState(authState);
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
-    console.log(auth.isAuthenticated)
-    if (auth.isAuthenticated===false)     Navigate("/signin");
+    console.log(auth.isAuthenticated);
+    const isTokenExpired = (token: string) =>
+      Date.now() >= JSON.parse(atob(token.split(".")[1])).exp * 1000;
+    if (!token || auth.isAuthenticated === false || isTokenExpired(token)) {
+      localStorage.removeItem("token");
+      setAuth({ isAuthenticated: false });
+      Navigate("/signin");
+    }
   }, []);
   return <>{children}</>;
 };
 
-export default ProtectedRoute;        
-
-
-
+export default ProtectedRoute;

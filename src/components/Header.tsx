@@ -16,7 +16,8 @@ import { authState } from "@/Auth/Auth";
 
 const Header = () => {
   const Navigate = useNavigate();
-  const [auth,setAuth]=useRecoilState(authState);
+  const [auth,setAuth]=useRecoilState(authState);;
+
   return (
     <header>
       <div className="flex items-center justify-between px-4 py-3 md:px-6 lg:px-8 ">

@@ -34,6 +34,7 @@ export default function SigninPage() {
 
       console.log(auth);
       if (token != null) {
+        localStorage.setItem("token",token);
         setAuth({isAuthenticated:true})
         Navigate("/main")
       }
